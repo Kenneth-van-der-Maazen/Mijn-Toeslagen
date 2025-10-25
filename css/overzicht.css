@@ -1,0 +1,642 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: ROSans, Verdana, Sans-serif;
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+body {
+    background: #f3f3f3;
+    line-height: 1.45em;
+    font-size: 68.75%;
+}
+
+h1 {
+    font-size: 32px;
+    font-family: ROSansBold, Arial, sans-serif;
+    font-weight: normal;
+    padding: 0 0 12px 0;
+}
+
+h2 {
+    font-family: ROSansBold, Arial, sans-serif;
+    font-size: 1.3rem;
+    color: #000;
+    padding: 0 3px 4px 0;
+}
+
+li {
+    list-style: none;
+}
+
+p .extra-name {
+    font-weight: 600;
+}
+
+/*////////// NAVIGATIE BAR ////////*/
+.nav-bar-container {
+    background-color: #fff;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 3;
+    border-bottom: 2px solid #ffb612;
+}
+
+.nav-bar {
+    height: 100%;
+}
+
+.nav-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+}
+
+.nav-bar #menuToggle {
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    position: relative;
+    user-select: none;
+    height: 60px;
+    width: 100px;
+}
+
+.nav-bar #menuToggle .menu-toggle-icon-wrapper {
+    display: inline-block;
+    padding: 14px 0 29px 12px;
+}
+
+.nav-bar #menuToggle .menu-toggle-icon {
+    background: #42145f;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    transition: background .3s ease-out;
+    width: 18px;
+}
+
+.nav-bar #menuToggle .menu-toggle-title {
+    display: inline-block;
+    position: absolute;
+    margin: 17px 0 17px 5px;
+    color: #42145f;
+    font-size: 18px;
+}
+
+/* ========== DROPDOWN MENU TOGGLE ========== */
+.nav-bar #menu {
+    clear: both;
+    width: 275px;
+    position: absolute;
+    margin-top: 60px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-bar #menu.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ===== MENU ITEM HOVER EFFECT ===== */
+.nav-bar li a {
+    padding: 12px 10px;
+    text-decoration: none;
+    display: flex;
+    outline: none;
+    color: #42145f;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-bar li a:hover {
+    background-color: #42145f;
+    color: #fff;
+}
+
+/* ===== HAMBURGER ANIMATIE ===== */
+.menu-toggle-icon {
+    background: #42145f;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.menu-toggle-icon::before,
+.menu-toggle-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: #42145f;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.menu-toggle-icon::before {
+    top: -6px;
+}
+
+.menu-toggle-icon::after {
+    bottom: -6px;
+}
+
+/* Verander hamburger in kruis */
+.menu-toggle-icon.open {
+    background: transparent;
+}
+
+.menu-toggle-icon.open::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle-icon.open::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* ===== MENU TOGGLE TITLE ===== */
+#menuToggleTitle {
+    display: inline-block;
+    position: absolute;
+    margin: 17px 0 17px 5px;
+    color: #42145f;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+#menuToggle:hover #menuToggleTitle {
+    color: #2a0b40;
+}
+
+.nav-bar #menu {
+    /* clear: both;
+    width: 275px;
+    visibility: hidden;
+    position: absolute;
+    margin-top: 60px; */
+}
+
+.nav-bar li a.selected {
+    font-weight: bold;
+    background-color: #fef4db;
+}
+
+.nav-bar li a {
+    padding: 12px 10px;
+    text-decoration: none;
+    display: flex;
+    outline: none;
+    color: #42145f;
+}
+
+.nav-bar li .menu-icon-width {
+    width: 30px;
+}
+
+/* ===== NAVBAR TITLE TEXT ===== */
+.nav-bar .title {
+    display: block;
+    float: left;
+    font-size: 1.25rem;
+    font-family: ROSansBold, Arial, sans-serif;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    color: #42145f;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* text-transform: uppercase; */
+    font-weight: bold;
+}
+
+/* ===== NAVBAR RECHTS USER LOGGED IN ===== */
+.nav-bar #searchAndLoginData {
+    background: #fff;
+    float: right;
+    position: relative;
+    margin-top: -2px;
+}
+
+.nav-bar #searchAndLoginData li {
+    float: left;
+}
+
+.nav-bar #loginData {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-size: 12px, 10px;
+    cursor: pointer;
+    background: url('../images/user-locked.png') 5% 50% no-repeat, 
+                url('../images/arrow-down.png') 95% 50% no-repeat;
+    background-size: 12px, 10px;
+}
+
+.nav-bar #loginData .name-container {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.nav-bar #loginData .name {
+    color: #42145f;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: .9;
+    max-width: 150px;
+}
+
+.nav-bar #loginData #loginDropdown.show {
+    display: block;
+}
+
+.nav-bar #loginData #loginDropdown {
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    clear: both;
+    display: none;
+    min-width: 200px;
+    position: absolute;
+    right: 0;
+}
+
+.nav-bar #loginData #loginDropdown .extra-login-data {
+    padding: 10px;
+    max-width: 290px;
+    cursor: default;
+}
+
+/* ===== LOGIN DROPDOWN MENU ===== */
+#loginData {
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+#loginData:hover {
+    background-color: #f3edf7;
+}
+
+#loginData .name {
+    font-weight: bold;
+    color: #42145f;
+}
+
+#loginDropdown {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    min-width: 220px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1000;
+}
+
+#loginDropdown.show {
+    /* content: "Uitloggen"; */
+    /* display: block; */
+    /* animation: fadeIn 0.2s ease; */
+}
+
+#loginDropdown p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+#loginDropdown .extra-login-data {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Logout knop */
+#logoutForm::after {
+    /* content: "Uitloggen"; */
+    display: block;
+    background-color: #42145f;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+}
+
+#logoutForm::after:hover {
+    background-color: #2a0b40;
+}
+
+/* Animatie */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/*////////// WELKOMST BERICHT [USER] //////////*/
+.welkom {
+    padding: 80px 0 0 0;
+    background: linear-gradient(180deg, #f9e11e 0%, #ffb612 100%);
+    width: 100%;
+    height: 60px;
+    margin-bottom: -40px;
+}
+
+.welkom h1 span {
+    text-transform: uppercase;
+    font-size: 32px;
+    font-family: ROSansBold, Arial, sans-serif;
+    font-weight: normal;
+    padding: 0 0 12px 0;
+    background: transparent;
+}
+
+a.button-extra {
+    padding: 8px 12px;
+    display: inline-block;
+    margin: 10px 5px 0 5px;
+    font-weight: bold;
+}
+
+a.button-extra:hover {
+    background-color: lightslategrey;
+    color: #01689b;
+}
+
+.button-white {
+    padding: 5px 12px;
+    background-color: #fff;
+    box-shadow: none;
+    color: #42145f;
+    border: solid 1px #42145f;
+    white-space: normal;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+#Content .blok .alert-panel.row, #Content .blok .info-panel.row {
+    display: flex;
+}
+
+
+
+.h1-container {
+    height: 100%;
+}
+
+.donkerpaars h1 {
+    color: #42145f;
+}
+
+/*////////// MAIN PAGINA CONTENT //////////*/
+#PageContainer {
+    margin: auto;
+}
+
+#Content {
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+#Content p {
+    padding: 0 0 12px 0;
+}
+
+#Content .left-column-new {
+    float: left;
+    width: 950px;
+    padding: 0 20px 0 10px;
+    min-height: .1px;
+}
+
+
+#Content .blok.row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#Content .inactief,
+#Content .passief {
+    background: #fff;
+}
+
+#Content .actief {
+    background: #fff;
+    border-left: 5px solid #42145f;
+}
+
+#Content .info-panel {
+    background: #ddeff8 url('../images/info-icon_20x20.png') 30px 18px / 15px no-repeat;
+}
+
+#Content .blok {
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#Content .alert-panel p, #Content .validation-panel p, #Content .info-panel p, #Content .validation-message p, #Content .validation-summary-errors p {
+    padding: 0;
+    font-family: ROSans, Verdana, Sans-serif;
+}
+
+#Content .alert-panel, #Content .validation-panel, #Content .info-panel, #Content .validation-message, #Content .validation-summary-errors {
+    padding: 15px 15px 15px 30px;
+    min-height: 22px;
+    margin-bottom: 1rem;
+}
+
+#Content .blok .alert-panel.row, 
+#Content .blok .info-panel.row {
+    display: flex;
+}
+
+#Content .blok .alert-panel, #Content .blok .info-panel {
+    margin-bottom: unset;
+}
+
+#Content .blok .col.single {
+    width: calc(100%);
+}
+
+#Content .blok .col.left {
+    width: calc(100% - 25px);
+}
+
+.verticalMiddle {
+    display: flex;
+    align-items: center;
+}
+
+#Content .blok .icon {
+    float: left;
+}
+
+#Content .blok .link-to-page-panel {
+    margin-left: 10px;
+    width: calc(100%);
+    display: flex;
+    align-items: center;
+}
+
+#Content .blok .title-left {
+    display: flex;
+    justify-content: left;
+    height: 100%;
+}
+
+#Content .blok .toeslag-content {
+    margin-left: 60px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.blok a:not(.simple-link,.mainitem,.button,.button-white) {
+    outline: 0;
+    color: #42145f;
+    background: url('../images/arrow-right.png') -4px 0 no-repeat;
+    padding-left: 15px;
+    transition: .3s background-position-x ease-out, 
+                .3s -webkit-transform ease-out;
+    text-decoration: none;
+}
+
+.blok a:not(.simple-link,.mainitem,.button,.button-white):hover {
+    background-position-x: 2px;
+    text-decoration: underline;
+    color: #01689b;
+}
+
+#Content .blok .link-to-page-panel.toonresponsive {
+    margin-left: 60px;
+    width: calc(100%);
+    display: block;
+    align-items: center;
+}
+
+.img-document {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/*////////// MAIN PAGINA FOOTER //////////*/
+.footer-container {
+    width: 100%;
+    background-color: #e3dce7;
+    padding: 40px 0 50px;
+}
+
+.footer .flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .col {
+    width: 25%;
+    position: relative;
+    padding: 15px;
+    float: left;
+}
+
+.footer .heading {
+    border-bottom: none;
+    padding: unset;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #42145f;
+}
+
+/*========== Content right column ==========*/
+#Content .right-column-new {
+    float: left;
+    width: 300px;
+    padding: 0 10px 0 10px;
+}
+
+.nav-bar #loginData #loginDropdown a {
+    color: #42145f;
+    padding: 0 0 0 40px;
+    text-decoration: none;
+    background-image: url('../images/logout-btn.png');
+    background-repeat: no-repeat;
+    background-position-y: 50%;
+    background-position-x: 16px;
+    transition: all .3s ease-out;
+}
+
+
+
+
+/* =============================================== */
+
+@media screen and (min-width: 1300px) {
+    #PageContainer {
+        width: 1300px;
+    }
+    .h1-container {
+        width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 20px;
+    }
+    .nav-bar {
+        width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .footer .flex-container {
+        width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .nav-bar #loginData #loginDropdown a {
+        height: 60px;
+        line-height: 60px;
+    }
+}
+
+
+
+
+@media screen and (min-width: 395px) {
+    #Content .blok .link-to-page-panel.toonresponsive {
+        display: none;
+    }
+}
+
+
+.toeslag-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.toeslag-content ul li {
+    padding: 6px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.95rem;
+}

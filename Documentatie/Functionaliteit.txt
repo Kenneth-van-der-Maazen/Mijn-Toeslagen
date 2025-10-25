@@ -1,0 +1,94 @@
+Functionaliteit
+
+[x] Gebruikersaccount aanmaken
+[x] Inloggen met e-mailadres/wachtwoord
+[x] Wachtwoord herstellen of resetten ( of wachtwoord veranderen)
+[x] Persoonsgegevens bekijken en bewerken (NAW (naam/adres/woonplaats)-gegevens, gezinsamenstelling)
+[ ] Partnergegevens (optioneel) toevoegen
+[ ] Automatische check op basis van inkomen en gezinsgrootte (bepalen of gebruiker mogelijk recht heeft op een bepaalde toeslag)
+[X] Overzicht tonen van beschikbare toeslagen (bijvoorbeeld Huurtoeslag, Zorgtoeslag, Kinderopvangtoeslag)
+[ ] Huurtoeslag aanvragen
+[ ] Zorgtoeslag aanvragen
+[ ] Kinderopvangtoeslag aanvragen
+
+Home > Toeslagen > Mijn aanvragen
+[ ] Overzicht van alle ingediende toeslagaanvragen (lopend, goedgekeurd, afgewezen)
+[ ] Wijzigen of annuleren van een lopende aanvraag
+[ ] Verwijderen van een (nog niet behandelde) aanvraag
+[ ] Weergave van de status (in behandeling, goedgekeurd, afgewezen) per aanvraag
+
+
+Kenneth - Overzicht.php 
+-> rechterzijde: (if admin) => accounts Wijzigen, aanvragen beoordelen
+
+[X] Rollen & rechten (bijv. admin kan meer dan een reguliere gebruiker)
+[-] Admin kan gebruikersbeheer uitvoeren (gebruikers inzien/blokkeren/verwijderen)
+[ ] Admin kan toeslagaanvragen beoordelen (goedkeuren, afkeuren)
+
+Optioneel
+[ ] Basisrapportage (totaal aantal aanvragen, aantal goedgekeurde/afgewezen aanvragen)
+[ ] Exportfunctie (CSV/Excel-download van alle aanvragen of gebruikers)
+[ ] Notificatie/e-mail bij statuswijziging (gebruiker ontvangt bericht als een aanvraag is goedgekeurd of afgewezen)
+
+-> Toeslag-aanvragen.php werkt de navbar het beste !!
+
+CREATE TABLE user_toeslagen (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  toeslag_id INT UNSIGNED NOT NULL,
+  actief TINYINT(1) NOT NULL DEFAULT 0,
+  bedrag DECIMAL(10,2) DEFAULT NULL,
+  jaar YEAR DEFAULT NULL,
+  aangemaakt_op TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  bijgewerkt_op TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_user_toeslagen_user
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_user_toeslagen_toeslag
+    FOREIGN KEY (toeslag_id) REFERENCES toeslagen(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+<?php foreach ($toeslagen as $toeslag): ?>
+                        <?php 
+                            $actief = $toeslag['actief'] ? 'actief' : 'inactief';
+                            $titel = htmlspecialchars($toeslag['toeslag_naam']);
+                            $bedrag = $toeslag['bedrag'] ?? 0;
+                        ?>
+                        <li>
+                            <div class="blok <?php echo $actief; ?> row">
+                                <div class="col single">
+                                    <div>
+                                        <div class="icon">
+                                            <?php if ($actief): ?>
+                                                <img src="../images/<?php echo strtolower($titel); ?>-icon-actief.png" alt="">
+                                            <?php else: ?>
+                                                <img src="../images/<?php echo strtolower($titel); ?>-icon.png" alt="">
+                                            <?php endif; ?>
+                                        </div>
+
+                                        <div class="toeslag-content">
+                                            <h2><?php echo $titel; ?></h2>
+                                            <?php if ($actief): ?>
+                                                <a href="/<?php echo $titel; ?>" aria-describedby="<?php echo $titel; ?>">
+                                                    Uw toeslag voor <?php echo $toeslag['jaar']; ?> is € <?php echo number_format($bedrag, 2, ',', '.'); ?>
+                                                </a>
+                                            <?php else: ?>
+                                                <a href="/<?php echo $titel; ?>" aria-describedby="<?php echo $titel; ?>">
+                                                    Aanvragen
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+
+============================================================
+Als gebruiker niet is ingelogd:
+    -> /toeslagen/toeslagen.php
+
+Als wel een gebruiker is inglogd:
+    -> /toeslagen/overzicht.php

@@ -1,0 +1,235 @@
+/* ======= Breadcrumb Styling ======= */
+nav[aria-label="Breadcrumb"] {
+    background-color: #f8f9fa; /* lichtgrijs */
+    border-top: 3px solid #0a6b38; /* overheidsgroen */
+}
+
+.breadcrumb {
+    background: transparent;
+    font-size: 0.95rem;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: " > ";
+    color: #6c757d; /* grijs pijltje */
+    padding: 0 0.25rem;
+}
+
+.breadcrumb-item a {
+    color: #0a6b38;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+    color: #055826;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: " > ";
+    color: #6c757d;
+    padding: 0 0.25rem;
+}
+
+
+
+main {
+    display: block;
+}
+
+/* ========== FLEX & LAYOUT ========== */
+.d-flex {
+    display: flex !important;
+}
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ========== HEADER SECTION (Toeslagen) ========== */
+.bld-layer-title-v3 {
+    min-height: 460px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* De linkerhelft: gele achtergrond met tekst */
+.bld-layer-title-v3-bg {
+    background: linear-gradient(180deg, #f9e11e, #ffb612);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 460px;
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Rechterhelft: afbeelding */
+.bld-layer-title-v3-bg.toeslagen {
+    background-image: url('../images/zorgtoeslag.jpg');
+    background-size: cover;
+    background-position: center right;
+    min-height: 460px;
+    flex: 1;
+}
+
+/* Tekst in het gele vlak */
+.bld-layer-title-v3-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #000;
+    z-index: 2;
+}
+
+/* Tekststijl */
+.bld-layer-title-v3-content h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #000; /* zwart op gele achtergrond */
+    margin-bottom: 0.5rem;
+}
+
+.bld-layer-title-v3-content p.lead {
+    font-size: 1.2rem;
+    color: #333;
+    max-width: 90%;
+}
+
+/* Zorg dat tekst goed uitlijnt in de container */
+.bld-layer-title-v3-content .container {
+    max-width: 1200px;
+}
+
+/* Responsief gedrag */
+@media (min-width: 768px) {
+    .container {
+        max-width: 724px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .bld-layer-title-v3 {
+        min-height: auto;
+    }
+    .bld-layer-title-v3-bg,
+    .bld-layer-title-v3-bg.toeslagen {
+        min-height: 260px;
+    }
+    .bld-layer-title-v3-content {
+        position: relative;
+        margin-top: 1rem;
+        padding-bottom: 2rem;
+    }
+}
+
+/* ========== HEADER SECTION (cards) ========== */
+.bld-layer-featured .card {
+    background-color: #fef4db;
+    border-color: #fef4db;
+    height: 100%;
+}
+
+.bld-layer-featured .card-body {
+    color: #42145f;
+}
+
+.card {
+    /* border: unset; */
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+    word-wrap: break-word;
+    background-clip: border-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.card .card-header {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.card .card-header+.card-body {
+    padding: 0 .625rem .625rem;
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    margin-bottom: 0;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: .625rem;
+}
+
+.card-footer,
+.card-header {
+    background-color: transparent;
+    padding: .75rem .625rem;
+}
+
+.card .card-footer {
+    background-color: transparent;
+    border-top: none;
+}
+
+.card-footer {
+    border-top: 1px solid rgba(0, 0, 0, .125);
+}
+
+.card .card-footer>:last-child {
+    margin-bottom: 0;
+}
+
+ul.bld-knoppenlijst {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+ul.bld-knoppenlijst li {
+    margin-bottom: .5rem;
+}
+
+main a[class*=bld-knop] {
+    background-color: #42145f;
+    color: #fff;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .2);
+    transition: box-shadow .4s;
+    height: auto;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.bld-knop-algemeen {
+    /* background-color: #42145f;
+    color: #fff;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .2);
+    transition: box-shadow .4s;
+    height: auto;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none; */
+}

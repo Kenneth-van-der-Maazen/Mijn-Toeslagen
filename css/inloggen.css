@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: ROregular, Segoe UI, Helvetica Neue, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.375;
+    margin: 0;
+    text-align: left;
+}
+
+article, aside, 
+figcaption, figure, footer, 
+header, hgroup, 
+main, 
+nav, 
+section {
+    display: block;
+}
+
+ol, ol li, ul, ul li {
+    padding-left: 0;
+}
+
+.sr-only {
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
+}
+
+.header {
+    height: auto;
+}
+
+.navbar {
+    padding: .5rem 1rem;
+    position: relative;
+}
+
+.header .navbar {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1;
+    min-height: 48px;
+    padding: 0;
+    z-index: 1000;
+}
+
+.header .navbar ul.navbar-nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 0;
+    width: 100%;
+}
+
+.header .navbar .navbar-nav>li.show,
+.header .navbar .navbar-nav>li>a.active {
+    background-color: hsla(0, 0%, 100%, .7);
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.navbar-nav .dropdown {
+    position: static;
+}
+
+.header .navbar-wrapper {
+    border-bottom: 2px solid #8fcae7;
+    width: 100%;
+}
+
+.navbar,
+.navbar .container,
+.navbar .container-fluid,
+.navbar .container-lg, 
+.navbar .container-md,
+.navbar .container-sm {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.navbar #overlay {
+    background-color: rgba(0, 0, 0, .5);
+    bottom: 0;
+    cursor: pointer;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+}
+
+.header .navbar .navbar-nav>li>a[class*=bld-knop] {
+    align-items: center;
+    display: flex;
+    font-family: ROregular, Segoe UI, Helvetica Neue, sans-serif;
+    height: auto;
+    min-height: 48px;
+    padding: 3px 15px;
+    position: relative;
+}
+
+.header .navbar .navbar-nav>li>a[class*=bld-knop] span {
+    padding-left: 10px;
+}
+
+body .header .navbar {
+    background-color: #fff;
+}
+
+body .header .navbar .navbar-wrapper {
+    border-bottom: 2px solid #ffb612;
+}
+
+body .header .navbar .nav-item>a[class*=bld-knop] {
+    color: #42145f;
+}
+
+body .header .navbar .navbar-nav>li>a[class*=bld-knop] {
+    /* background-color: #fee9b7; */
+    color: #42145f;
+}
+
+.container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/*////////// BREADCRUMBS NAVBAR ////////// */
+body .header .navbar .breadcrumb {
+    background-color: #fff;
+    border-bottom: 1px solid #e3dce7;
+}
+
+body .header .navbar .breadcrumb li {
+    color: dimgray;
+}
+
+body .header .navbar .breadcrumb li>a {
+    color: #42145f;
+}
+
+.header .navbar .breadcrumb {
+    background-color: #eef7fb;
+}
+
+.breadcrumb {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0;
+    padding: 4px 0;
+    width: 100%;
+}
+
+.breadcrumb ol {
+    margin: 0;
+}
+
+.breadcrumb ol li {
+    display: inline-block;
+    line-height: 1.375;
+    padding-right: 10px;
+}
+
+.breadcrumb ol li a {
+    text-decoration: none;
+}
+
+.list-inline {
+    list-style: none;
+    padding-left: 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .header .navbar {
+        min-height: 60px;
+    }
+    .container {
+        max-width: 724px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header .navbar .navbar-nav>li>a[class*=bld-knop] {
+        min-height: 60px;
+        padding: 8px 15px;
+    }
+    .sr-only-not-sm {
+        height: auto;
+        overflow: visible;
+        position: static;
+        width: auto;
+        clip: auto;
+        white-space: normal;
+    }
+    .d-sm-block {
+        display: block !important;
+    }
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    [class*=col-] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+@media (min-width: 1240px) {
+    .container {
+        max-width: 1170px;
+    }
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    [class*=col-] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

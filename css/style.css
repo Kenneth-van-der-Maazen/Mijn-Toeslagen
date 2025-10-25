@@ -1,0 +1,52 @@
+/* Base tweaks */
+:root {
+	--dt-primary: #0d6efd;
+	--dt-dark: #0b1220;
+	--dt-muted: #6c757d;
+	--dt-bg: #f8fafc;
+}
+
+body {
+	background-color: var(--dt-bg);
+	color: #212529;
+}
+
+/* Navbar */
+.navbar-brand {
+	font-weight: 700;
+	letter-spacing: .2px;
+}
+
+/* Hero section */
+.hero {
+	position: relative;
+	padding: 4rem 0;
+	background: linear-gradient(180deg, #fff 0%, #f4f7fb 100%);
+	border-bottom: 1px solid rgba(0,0,0,.05);
+}
+.hero h1 {
+	font-weight: 700;
+}
+.hero p.lead {
+	color: var(--dt-muted);
+}
+
+/* Content cards */
+.content-card {
+	background: #fff;
+	border: 1px solid rgba(0,0,0,.06);
+	border-radius: .75rem;
+	box-shadow: 0 .25rem .75rem rgba(0,0,0,.04);
+}
+
+/* Footer */
+footer {
+	background: #fff;
+}
+footer h6 {
+	font-weight: 700;
+}
+
+/* Utilities */
+.text-muted-2 { color: var(--dt-muted); }
+

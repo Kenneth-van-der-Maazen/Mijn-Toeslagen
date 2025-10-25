@@ -1,0 +1,600 @@
+@media screen and (min-width: 1300px) {
+    .nav-bar {
+        width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #meerjarenMenu ul#jaren {
+        width: 1300px;
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    [class*=col-] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .col-lg-7 {
+        flex: 0 0 58.33333333%;
+        max-width: 58.33333333%;
+    }
+    .container {
+        max-width: 1170px;
+    }
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    [class*=col-] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .col-sm-8 {
+        flex: 0 0 66.66666667%;
+        max-width: 66.66666667%;
+    }
+    .container {
+        max-width: 724px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .content_main h1 {
+        font-size: 2.125rem;
+        line-height: 1.2941;
+        margin-bottom: .75rem;
+    }
+    .content_main .lead {
+        font-size: 1.3125rem;
+        font-weight: 400;
+        line-height: 1.5238;
+        margin-bottom: 2rem;
+    }
+    .offset-sm-2 {
+        margin-left: 16.66666667%;
+    }
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+}
+
+@media screen and (min-width: 395px) {
+
+}
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+/* |||||||||||     HEADER + NAVBAR        |||||||||||||||||||||||||||||| */
+/* ///////////////////////////////////////////////////////////////////// */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: ROSans, Verdana, Sans-serif;
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+body {
+    background: #f3f3f3;
+    line-height: 1.45em;
+    font-size: 68.75%;
+}
+
+h1 {
+    font-size: 32px;
+    font-family: ROSansBold, Arial, sans-serif;
+    font-weight: normal;
+    padding: 0 0 12px 0;
+}
+
+h2 {
+    font-family: ROSansBold, Arial, sans-serif;
+    font-size: 1.3rem;
+    color: #000;
+    padding: 0 3px 4px 0;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: text-bottom;
+}
+
+
+/*////////// NAVIGATIE BAR ////////*/
+.nav-bar-container {
+    background-color: #fff;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    border-bottom: 3px solid #ffb612;
+}
+
+.nav-bar {
+    height: 100%;
+}
+
+.nav-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+}
+
+.nav-bar #menuToggle {
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    position: relative;
+    user-select: none;
+    height: 60px;
+    width: 100px;
+}
+
+.nav-bar #menuToggle .menu-toggle-icon-wrapper {
+    display: inline-block;
+    padding: 14px 0 29px 12px;
+}
+
+.nav-bar #menuToggle .menu-toggle-icon {
+    background: #42145f;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    transition: background .3s ease-out;
+    width: 18px;
+}
+
+.nav-bar #menuToggle .menu-toggle-title {
+    display: inline-block;
+    position: absolute;
+    margin: 17px 0 17px 5px;
+    color: #42145f;
+    font-size: 18px;
+}
+
+/* ========== DROPDOWN MENU TOGGLE ========== */
+.nav-bar #menu {
+    clear: both;
+    width: 275px;
+    position: absolute;
+    margin-top: 60px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-bar #menu.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ===== MENU ITEM HOVER EFFECT ===== */
+.nav-bar li a {
+    padding: 12px 10px;
+    text-decoration: none;
+    display: flex;
+    outline: none;
+    color: #42145f;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-bar li a:hover {
+    background-color: #42145f;
+    color: #fff;
+}
+
+.nav-bar li a.selected {
+    font-weight: bold;
+    background-color: #fef4db;
+}
+
+/* ===== HAMBURGER ANIMATIE ===== */
+.menu-toggle-icon {
+    background: #42145f;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.menu-toggle-icon::before,
+.menu-toggle-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: #42145f;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.menu-toggle-icon::before {
+    top: -6px;
+}
+
+.menu-toggle-icon::after {
+    bottom: -6px;
+}
+
+/* Verander hamburger in kruis */
+.menu-toggle-icon.open {
+    background: transparent;
+}
+
+.menu-toggle-icon.open::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle-icon.open::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* ===== NAVBAR TITLE TEXT ===== */
+.nav-bar .title {
+    display: block;
+    float: left;
+    font-size: 1.25rem;
+    font-family: ROSansBold, Arial, sans-serif;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    color: #42145f;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* text-transform: uppercase; */
+    font-weight: bold;
+}
+
+/* ===== NAVBAR RECHTS USER LOGGED IN ===== */
+.nav-bar #searchAndLoginData {
+    background: #fff;
+    float: right;
+    position: relative;
+    margin-top: -2px;
+}
+
+.nav-bar #searchAndLoginData li {
+    float: left;
+}
+
+.nav-bar #loginData {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-size: 12px, 10px;
+    cursor: pointer;
+    background: url('../images/user-locked.png') 5% 50% no-repeat, 
+                url('../images/arrow-down.png') 95% 50% no-repeat;
+    background-size: 12px, 10px;
+}
+
+.nav-bar #loginData .name-container {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.nav-bar #loginData .name {
+    color: #42145f;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: .9;
+    /* max-width: 150px; */
+}
+
+.nav-bar #loginData #loginDropdown.show {
+    display: block;
+}
+
+.nav-bar #loginData #loginDropdown {
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    clear: both;
+    display: none;
+    min-width: 200px;
+    position: absolute;
+    right: 0;
+}
+
+.nav-bar #loginData #loginDropdown .extra-login-data {
+    padding: 10px;
+    max-width: 290px;
+    cursor: default;
+}
+
+
+
+#meerjarenMenu {
+    background: #fef4db;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3px;
+    margin-bottom: -60px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#meerjarenMenu ul#jaren {
+    padding: 0 0 7px 12px;
+    /* width: 100%; */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#meerjarenMenu li {
+    display: inline;
+    float: left;
+    padding: 4px 0;
+}
+
+li {
+    list-style: none;
+}
+
+#meerjarenMenu ul#jaren a, #meerjarenMenu ul#jaren #meerjarenSelected {
+    padding: 6px 10px 7px 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+a:not(.rekenhulpbutton,.mainitem,.button,.button-white) {
+    color: #42145f;
+}
+
+#meerjarenMenu ul#jaren #meerjarenSelected {
+    background: #fee9b7;
+    color: #000;
+}
+
+#meerjarenMenu ul#jaren a, #meerjarenMenu ul#jaren #meerjarenSelected {
+    padding: 6px 10px 7px 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+#Content {
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+#Content .left-column-new {
+    float: left;
+    width: 950px;
+    padding: 0 20px 0 10px;
+    min-height: .1px;
+}
+
+#Content .right-column-new {
+    float: left;
+    width: 300px;
+    padding: 0 10px 0 10px;
+}
+
+#Content .left-column-new:first-child {
+    width: 100%;
+}
+
+#Content .blok-title {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#Content .blok-title .wrapper {
+    height: 55px;
+}
+
+#Content .blok-title .icon {
+    float: left;
+}
+
+#Content .blok-title .title-left {
+    display: flex;
+    justify-content: left;
+    height: 100%;
+    margin-left: 42px;
+}
+
+#Content .inactief, #Content .passief {
+    background: #fff;
+}
+
+#Content .simple-blok {
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#Content p {
+    padding: 0 0 12px 0;
+}
+
+#Content .inactief, #Content .passief {
+    background: #fff;
+}
+
+#Content .blok {
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#Content .blok .content {
+    text-align: left;
+}
+
+.form-block {
+    padding-bottom: 30px;
+}
+
+.table-block {
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+.table-block table {
+    width: 100%;
+}
+
+.table-block table.special-data th.emphasis-2 {
+    font-weight: bold;
+}
+
+.table-block table.special-data th, .table-block table.special-data td {
+    padding: 2px 6px 4px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.table-block table td, .table-block table th {
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+}
+
+.table-block table.special-data th, .table-block table.special-data td {
+    padding: 2px 6px 4px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.table-block table td, .table-block table th {
+    vertical-align: top;
+    font-weight: normal;
+    text-align: left;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+
+.blok a:not(.simple-link,.mainitem,.button,.button-white).extern {
+    padding: 1px 0 3px 20px;
+    background: url('../images/icon-externelinks.png') 0 5px no-repeat;
+}
+
+.blok a:not(.simple-link,.mainitem,.button,.button-white) {
+    outline: 0;
+    color: #42145f;
+    background: url('../images/arrow-right.png') -4px 0 no-repeat;
+    padding-left: 15px;
+    transition: .3s background-position-x ease-out, 
+    .3s -webkit-transform ease-out;
+    text-decoration: none;
+}
+
+
+.uitbetalingen-lijst {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.uitbetaling-card {
+    background: #f8f8f8;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.uitbetaling-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #004c97;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.uitbetaling-header:hover {
+    background: #0067c0;
+}
+
+.uitbetaling-header .datum {
+    font-weight: normal;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.uitbetaling-header .bedrag {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.uitbetaling-body {
+    display: none;
+    background: white;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+.uitbetaling-body.show {
+    display: block;
+}
+
+.uitbetaling-header.open {
+    background: #003a75;
+}
+
+
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+/* |||||||||||     FOOTER        |||||||||||||||||||||||||||||||||||||||| */
+/* ///////////////////////////////////////////////////////////////////// */
+.footer-container {
+    width: 100%;
+    background-color: #e3dce7;
+    padding: 40px 0 50px;
+}
+
+.footer .flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .col {
+    width: 25%;
+    position: relative;
+    padding: 15px;
+    float: left;
+}
+
+.footer .heading {
+    border-bottom: none;
+    padding: unset;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #42145f;
+}

@@ -1,0 +1,358 @@
+CREATE DATABASE ToeslagenDB;
+USE ToeslagenDB;
+
+CREATE TABLE Rollen (
+    rol_id INT AUTO_INCREMENT PRIMARY KEY,
+    naam VARCHAR(50) NOT NULL -- bv. 'gebruiker', 'admin'
+);
+
+CREATE TABLE Gebruikers (
+    gebruiker_id INT AUTO_INCREMENT PRIMARY KEY,
+    rol_id INT NOT NULL,
+    email VARCHAR(255) NOT NULL,       
+    wachtwoord_hash VARCHAR(255) NOT NULL,
+    naam VARCHAR(100) NOT NULL,
+    adres VARCHAR(255),
+    woonplaats VARCHAR(100),
+    geboortedatum DATE,
+    inkomen DECIMAL(10,2),             -- bruto jaarinkomen
+    gezinsgrootte INT DEFAULT 1,
+    actief BOOLEAN DEFAULT TRUE,       -- admin kan blokkeren
+    FOREIGN KEY (rol_id) REFERENCES Rollen(rol_id)
+);
+
+CREATE TABLE Partners (
+    partner_id INT AUTO_INCREMENT PRIMARY KEY,
+    gebruiker_id INT NOT NULL,
+    naam VARCHAR(100) NOT NULL,
+    geboortedatum DATE,
+    inkomen DECIMAL(10,2),
+    FOREIGN KEY (gebruiker_id) REFERENCES Gebruikers(gebruiker_id)
+);
+
+CREATE TABLE Toeslagen (
+    toeslag_id INT AUTO_INCREMENT PRIMARY KEY,
+    naam VARCHAR(100) NOT NULL, -- bv. 'Huurtoeslag', 'Zorgtoeslag'
+    beschrijving TEXT
+);
+
+CREATE TABLE Aanvragen (
+    aanvraag_id INT AUTO_INCREMENT PRIMARY KEY,
+    gebruiker_id INT NOT NULL,
+    toeslag_id INT NOT NULL,
+    datum_aanvraag DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('in_behandeling','goedgekeurd','afgewezen') DEFAULT 'in_behandeling',
+    FOREIGN KEY (gebruiker_id) REFERENCES Gebruikers(gebruiker_id),
+    FOREIGN KEY (toeslag_id) REFERENCES Toeslagen(toeslag_id)
+);
+
+CREATE TABLE StatusLog (
+    log_id INT AUTO_INCREMENT PRIMARY KEY,
+    aanvraag_id INT NOT NULL,
+    oude_status ENUM('in_behandeling','goedgekeurd','afgewezen'),
+    nieuwe_status ENUM('in_behandeling','goedgekeurd','afgewezen'),
+    gewijzigd_op DATETIME DEFAULT CURRENT_TIMESTAMP,
+    gewijzigd_door INT, -- admin ID
+    FOREIGN KEY (aanvraag_id) REFERENCES Aanvragen(aanvraag_id),
+    FOREIGN KEY (gewijzigd_door) REFERENCES Gebruikers(gebruiker_id)
+);
+
+==========================================================
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Gegenereerd op: 18 okt 2025 om 01:50
+-- Serverversie: 10.4.32-MariaDB
+-- PHP-versie: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `toeslagendb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `aanvragen`
+--
+
+CREATE TABLE `aanvragen` (
+  `aanvraag_id` int(11) NOT NULL,
+  `gebruiker_id` int(11) NOT NULL,
+  `toeslag_id` int(11) NOT NULL,
+  `datum_aanvraag` datetime DEFAULT current_timestamp(),
+  `status` enum('in_behandeling','goedgekeurd','afgewezen') DEFAULT 'in_behandeling'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `gebruikers`
+--
+
+CREATE TABLE `gebruikers` (
+  `gebruiker_id` int(11) NOT NULL,
+  `rol_id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `wachtwoord_hash` varchar(255) NOT NULL,
+  `naam` varchar(100) NOT NULL,
+  `adres` varchar(255) DEFAULT NULL,
+  `woonplaats` varchar(100) DEFAULT NULL,
+  `geboortedatum` date DEFAULT NULL,
+  `inkomen` decimal(10,2) DEFAULT NULL,
+  `gezinsgrootte` int(11) DEFAULT 1,
+  `actief` tinyint(1) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `gebruikers`
+--
+
+INSERT INTO `gebruikers` (`gebruiker_id`, `rol_id`, `email`, `wachtwoord_hash`, `naam`, `adres`, `woonplaats`, `geboortedatum`, `inkomen`, `gezinsgrootte`, `actief`) VALUES
+(1, 1, 'admin@tesmail.com', '$2y$10$8LCoVn3aDv/vlgtIh12QTO8Wdr2ongWxxRytFAbc0M/.f.zFNMlvS', 'admin', NULL, NULL, NULL, NULL, 1, 1),
+(3, 1, '2203519@talnet.nl', '$2y$10$7vyEgRN1kMvRrSOvvRe52OhPIek3rxy3r9AV2hfJo1n1Utj/iht2W', 'adsf', 'asdfadsf', 'asdfadsf', '2025-10-23', 9999.00, 5, 1),
+(4, 1, 'admin@test.nl', '$2y$10$MKkurUpiotWncS0T8FwsVeHqTtA6olV5gNR8QtyyduQo9p/M.I00O', 'admin', 'admin', 'admin', '2025-10-23', 9999.00, 5, 1),
+(5, 2, 'kenneth@testmail.com', '$2y$10$dfSbvLtxZHLE0jomPRKMyenH7.APsspwVIXaKPb64kPhaD2JwwEPO', 'KD van der Maazen', 'teststraat 13', 'sta-plaats', '2001-06-26', 1200.00, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `partners`
+--
+
+CREATE TABLE `partners` (
+  `partner_id` int(11) NOT NULL,
+  `gebruiker_id` int(11) NOT NULL,
+  `naam` varchar(100) NOT NULL,
+  `geboortedatum` date DEFAULT NULL,
+  `inkomen` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `rollen`
+--
+
+CREATE TABLE `rollen` (
+  `rol_id` int(11) NOT NULL,
+  `naam` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `rollen`
+--
+
+INSERT INTO `rollen` (`rol_id`, `naam`) VALUES
+(1, 'admin'),
+(2, 'gebruiker'),
+(3, 'banned');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `statuslog`
+--
+
+CREATE TABLE `statuslog` (
+  `log_id` int(11) NOT NULL,
+  `aanvraag_id` int(11) NOT NULL,
+  `oude_status` enum('in_behandeling','goedgekeurd','afgewezen') DEFAULT NULL,
+  `nieuwe_status` enum('in_behandeling','goedgekeurd','afgewezen') DEFAULT NULL,
+  `gewijzigd_op` datetime DEFAULT current_timestamp(),
+  `gewijzigd_door` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `toeslagen`
+--
+
+CREATE TABLE `toeslagen` (
+  `toeslag_id` int(11) NOT NULL,
+  `naam` varchar(100) NOT NULL,
+  `beschrijving` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `toeslagen`
+--
+
+INSERT INTO `toeslagen` (`toeslag_id`, `naam`, `beschrijving`) VALUES
+(1, 'Zorgtoeslag', 'Een bijdrage voor de kosten van uw zorgverzekering'),
+(2, 'Huurtoeslag', 'Een bijdrage voor de kosten van uw huur'),
+(3, 'Kindgebondenbudget', 'Een bijdrage voor de onderhoud van uw kind'),
+(4, 'Kinderopvangtoeslag', 'Een bijdrage voor de kinderopvang van uw kind');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `user_toeslagen`
+--
+
+CREATE TABLE `user_toeslagen` (
+  `id` int(10) NOT NULL,
+  `gebruiker_id` int(11) DEFAULT NULL,
+  `toeslag_id` int(11) DEFAULT NULL,
+  `actief` tinyint(1) NOT NULL DEFAULT 0,
+  `bedrag` decimal(10,2) DEFAULT NULL,
+  `jaar` year(4) DEFAULT NULL,
+  `aangemaakt_op` timestamp NOT NULL DEFAULT current_timestamp(),
+  `bijgewerkt_op` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `user_toeslagen`
+--
+
+INSERT INTO `user_toeslagen` (`id`, `gebruiker_id`, `toeslag_id`, `actief`, `bedrag`, `jaar`, `aangemaakt_op`, `bijgewerkt_op`) VALUES
+(1, 4, 1, 1, 156.32, '2025', '2025-10-17 09:02:09', '2025-10-17 09:02:38'),
+(2, 5, 2, 1, 1440.00, '2025', '2025-10-17 17:42:54', '2025-10-17 17:42:54');
+
+--
+-- Indexen voor geëxporteerde tabellen
+--
+
+--
+-- Indexen voor tabel `aanvragen`
+--
+ALTER TABLE `aanvragen`
+  ADD PRIMARY KEY (`aanvraag_id`),
+  ADD KEY `gebruiker_id` (`gebruiker_id`),
+  ADD KEY `toeslag_id` (`toeslag_id`);
+
+--
+-- Indexen voor tabel `gebruikers`
+--
+ALTER TABLE `gebruikers`
+  ADD PRIMARY KEY (`gebruiker_id`),
+  ADD KEY `rol_id` (`rol_id`);
+
+--
+-- Indexen voor tabel `partners`
+--
+ALTER TABLE `partners`
+  ADD PRIMARY KEY (`partner_id`),
+  ADD KEY `gebruiker_id` (`gebruiker_id`);
+
+--
+-- Indexen voor tabel `rollen`
+--
+ALTER TABLE `rollen`
+  ADD PRIMARY KEY (`rol_id`);
+
+--
+-- Indexen voor tabel `statuslog`
+--
+ALTER TABLE `statuslog`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `aanvraag_id` (`aanvraag_id`),
+  ADD KEY `gewijzigd_door` (`gewijzigd_door`);
+
+--
+-- Indexen voor tabel `toeslagen`
+--
+ALTER TABLE `toeslagen`
+  ADD PRIMARY KEY (`toeslag_id`);
+
+--
+-- Indexen voor tabel `user_toeslagen`
+--
+ALTER TABLE `user_toeslagen`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`gebruiker_id`),
+  ADD KEY `toeslag_id` (`toeslag_id`),
+  ADD KEY `gebruiker_id` (`gebruiker_id`);
+
+--
+-- AUTO_INCREMENT voor geëxporteerde tabellen
+--
+
+--
+-- AUTO_INCREMENT voor een tabel `aanvragen`
+--
+ALTER TABLE `aanvragen`
+  MODIFY `aanvraag_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT voor een tabel `gebruikers`
+--
+ALTER TABLE `gebruikers`
+  MODIFY `gebruiker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT voor een tabel `partners`
+--
+ALTER TABLE `partners`
+  MODIFY `partner_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT voor een tabel `rollen`
+--
+ALTER TABLE `rollen`
+  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT voor een tabel `statuslog`
+--
+ALTER TABLE `statuslog`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT voor een tabel `toeslagen`
+--
+ALTER TABLE `toeslagen`
+  MODIFY `toeslag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT voor een tabel `user_toeslagen`
+--
+ALTER TABLE `user_toeslagen`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `aanvragen`
+--
+ALTER TABLE `aanvragen`
+  ADD CONSTRAINT `aanvragen_ibfk_1` FOREIGN KEY (`gebruiker_id`) REFERENCES `gebruikers` (`gebruiker_id`),
+  ADD CONSTRAINT `aanvragen_ibfk_2` FOREIGN KEY (`toeslag_id`) REFERENCES `toeslagen` (`toeslag_id`);
+
+--
+-- Beperkingen voor tabel `gebruikers`
+--
+ALTER TABLE `gebruikers`
+  ADD CONSTRAINT `gebruikers_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `rollen` (`rol_id`);
+
+--
+-- Beperkingen voor tabel `partners`
+--
+ALTER TABLE `partners`
+  ADD CONSTRAINT `partners_ibfk_1` FOREIGN KEY (`gebruiker_id`) REFERENCES `gebruikers` (`gebruiker_id`);
+
+--
+-- Beperkingen voor tabel `statuslog`
+--
+ALTER TABLE `statuslog`
+  ADD CONSTRAINT `statuslog_ibfk_1` FOREIGN KEY (`aanvraag_id`) REFERENCES `aanvragen` (`aanvraag_id`),
+  ADD CONSTRAINT `statuslog_ibfk_2` FOREIGN KEY (`gewijzigd_door`) REFERENCES `gebruikers` (`gebruiker_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

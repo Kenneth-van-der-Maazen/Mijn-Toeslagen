@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: ROSans, Verdana, Sans-serif;
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+body {
+    background: #f3f3f3;
+    line-height: 1.45em;
+    font-size: 68%;
+}
+
+h1 {
+    font-size: 32px;
+    font-family: ROSansBold, Arial, sans-serif;
+    font-weight: normal;
+    padding: 0 0 12px 0;
+}
+
+.nav-bar-container {
+    background-color: #fff;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 3;
+    border-bottom: 2px solid #ffb612;
+}
+
+.nav-bar {
+    height: 100%;
+}
+
+.nav-bar .title {
+    display: block;
+    float: left;
+    font-size: 1.25rem;
+    font-family: ROSansBold, Arial, sans-serif;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    color: #42145f;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#PageContainer {
+    margin: auto;
+}
+
+
+#Content {
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+#Content .left-column-new:first-child {
+    width: 100%;
+}
+
+#Content .left-column-new {
+    float: left;
+    width: 950px;
+    padding: 0 20px 0 10px;
+    min-height: .1px;
+}
+
+#Content .inactief,
+#Content .passief {
+    background: #fff;
+}
+
+#Content .simple-blok {
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#Content p {
+    padding: 0 0 12px 0;
+}
+
+a:not(.rekenhulpbutton,.mainitem,.button,.button-white) {
+    color: #42145f;
+}
+
+
+
+.footer-container {
+    width: 100%;
+    background-color: #e3dce7;
+    padding: 40px 50px;
+}
+
+
+
+@media screen and (min-width: 1300px) {
+    .nav-bar {
+        width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #PageContainer {
+        width: 1300px;
+    }
+}

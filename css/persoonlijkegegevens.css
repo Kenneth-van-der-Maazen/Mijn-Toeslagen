@@ -1,0 +1,351 @@
+@media screen and (min-width: 1300px) {
+    .nav-bar {
+        width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .kruimelpad {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .footer .flex-container {
+        width: 1300px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #PageContainer {
+        width: 1300px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: ROSans, Verdana, Sans-serif;
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+body {
+    background: #f3f3f3;
+    line-height: 1.45em;
+    font-size: 68.75%;
+}
+
+h1 {
+    font-size: 32px;
+    font-family: ROSansBold, Arial, sans-serif;
+    font-weight: normal;
+    padding: 0 0 12px 0;
+}
+
+h2 {
+    font-family: ROSansBold, Arial, sans-serif;
+    font-size: 1.3rem;
+    color: #000;
+    padding: 0 3px 4px 0;
+}
+
+p span.extra-name {
+    font-weight: 900;
+}
+
+input[type=submit]:not(.submitLink):not(.button-white), 
+button, 
+a.rekenhulpbutton, 
+a.button, 
+.button {
+    padding: 5px 12px;
+    background-color: #42145f;
+    box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+    color: #fff;
+    white-space: normal;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    margin: 5px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+.blok a:not(.simple-link,.mainitem,.button,.button-white).toeslagen-modal-link, .blok a:not(.simple-link,.mainitem,.button,.button-white).toeslagen-modal-link-new {
+    padding-left: 0;
+    background: url('../images/questionmark.png') 0 0 / 15px no-repeat;
+}
+
+.blok a:not(.simple-link,.mainitem,.button,.button-white) {
+    outline: 0;
+    color: #42145f;
+    background: url('../images/arrow-right.png') -4px 0 no-repeat;
+    padding-left: 15px;
+    transition: .3s background-position-x ease-out, 
+                .3s -webkit-transform ease-out;
+    text-decoration: none;
+}
+
+.toeslagen-modal-link-new {
+    outline: none;
+    padding-right: 0;
+    width: 15px;
+    height: 15px;
+    text-indent: -999em;
+    background: url('../images/questionmark.png') 0 0 / 15px no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.nav-bar-container {
+    background-color: #fff;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    border-bottom: 3px solid #ffb612;
+}
+
+.nav-bar {
+    height: 100%;
+}
+
+.nav-bar #menuToggle {
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    position: relative;
+    user-select: none;
+    height: 60px;
+    width: 100px;
+}
+
+.kruimelpad {
+    background: #fff;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-bottom: solid 1px #f3f0f5;
+}
+
+.kruimelpad .content {
+    padding: 6px 0 6px 10px;
+    width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.kruimelpad a {
+    text-decoration: none;
+    outline: none;
+    color: #42145f;
+    padding-right: 10px;
+}
+
+.kruimelpad a.overzicht {
+    padding: 1px 10px 0 25px;
+    background: url('../images/overzicht-menu-icon.png') 0 3px no-repeat;
+}
+
+.kruimelpad .content img {
+    padding-right: 14px;
+}
+
+#PageContainer {
+    margin: auto;
+    margin-top: 150px;
+}
+
+#Content {
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+#Content.paddingkruimelpad {
+    padding-top: 0;
+}
+
+#Content .left-column-new {
+    float: left;
+    width: 950px;
+    padding: 0 20px 0 10px;
+    min-height: .1px;
+}
+
+#Content .right-column-new {
+    float: left;
+    width: 300px;
+    padding: 0 10px 0 10px;
+}
+
+#Content .left-column-new:first-child {
+    width: 100%;
+}
+
+#Content .blok {
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#Content .inactief, #Content .passief {
+    background: #fff;
+}
+
+#Content .blok-title {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#Content .blok-title .wrapper {
+    height: 55px;
+}
+
+#Content .blok-title .icon {
+    float: left;
+}
+
+#Content .blok-title .title-left {
+    display: flex;
+    justify-content: left;
+    height: 100%;
+    margin-left: 42px;
+}
+
+#Content .flex {
+    display: flex;
+}
+
+.placeholderHelp {
+    min-width: 25px;
+}
+
+.contactgegevens .placeholderHelp {
+    min-width: 25px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px !important;
+}
+
+.contactgegevens label {
+    width: 200px;
+}
+
+.contactgegevens input[type=text] {
+    width: unset;
+}
+
+.layoutRow {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display: flex;
+    box-sizing: border-box;
+}
+
+/* INPUT FORM */
+form.mvc-form .button-row {
+    padding: 4px 0;
+    overflow: hidden;
+}
+
+form.mvc-form .layoutRow *:not(:last-child,.placeholderHelp) {
+    margin-right: 3px;
+}
+
+input[type=text] {
+    width: 100%;
+    height: 26px;
+    box-sizing: border-box;
+    border: 1px solid #696969;
+    outline: 0;
+    transition: all .15s ease-in-out;
+}
+
+.alignRight {
+    float: right;
+}
+
+/* Verberg de modal standaard */
+.toeslagen-help-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Als actief, toon de modal */
+.toeslagen-help-modal.active {
+    display: block;
+}
+
+/* Inhoud van het popupvenster */
+.toeslagen-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Sluitknop */
+.close-toeslagen-modal {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.close-toeslagen-modal:hover {
+    color: #42145f;
+}
+
+.edit-pencil {
+    height: 19px;
+    width: 19px;
+}
+
+
+
+.footer-container {
+    width: 100%;
+    background-color: #e3dce7;
+    padding: 40px 0 50px;
+}
+
+.footer .flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .col {
+    width: 25%;
+    position: relative;
+    padding: 15px;
+    float: left;
+}
+
+.footer .heading {
+    border-bottom: none;
+    padding: unset;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #42145f;
+}

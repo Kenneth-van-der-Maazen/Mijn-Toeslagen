@@ -1,0 +1,214 @@
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+body:not(.bld-fp):not(.bld-campagne) main {
+    padding-top: 2rem;
+}
+
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+main {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+}
+
+.bld-theme-tsl .bld-layer-title-v2 h1, .bld-theme-tsl.bld-campagne .bld-layer-campaign:not(.bld-bg-image) h2, .bld-theme-tsl.bld-campagne .bld-layer-contentoverview h2, .bld-theme-tsl.bld-campagne .bld-layer-library h2, .bld-theme-tsl.bld-campagne .bld-news-items h2, .bld-theme-tsl.bld-campagne h1, .bld-theme-tsl.bld-cp h1, .bld-theme-tsl.bld-fp .bld-layer-campaign:not(.bld-bg-image) h2, .bld-theme-tsl.bld-fp .bld-layer-contentoverview h2, .bld-theme-tsl.bld-fp .bld-layer-library h2, .bld-theme-tsl.bld-fp .bld-news-items h2, .bld-theme-tsl.doelpagina h1, .bld-toeslagen .bld-layer-title-v2 h1, .bld-toeslagen.bld-campagne .bld-layer-campaign:not(.bld-bg-image) h2, .bld-toeslagen.bld-campagne .bld-layer-contentoverview h2, .bld-toeslagen.bld-campagne .bld-layer-library h2, .bld-toeslagen.bld-campagne .bld-news-items h2, .bld-toeslagen.bld-campagne h1, .bld-toeslagen.bld-cp h1, .bld-toeslagen.bld-fp .bld-layer-campaign:not(.bld-bg-image) h2, .bld-toeslagen.bld-fp .bld-layer-contentoverview h2, .bld-toeslagen.bld-fp .bld-layer-library h2, .bld-toeslagen.bld-fp .bld-news-items h2, .bld-toeslagen.doelpagina h1 {
+    color: #42145f;
+}
+
+
+.bld-theme-tsl #bld-modal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #bld-modal .btn-primary:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #bld-modal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #bld-modal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #bld-modal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #vaModal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #vaModal .btn-primary:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #vaModal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #vaModal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl #vaModal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl main .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl main .btn-primary:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl main a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl main div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-theme-tsl main input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #bld-modal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #bld-modal .btn-primary:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #bld-modal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #bld-modal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #bld-modal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #vaModal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #vaModal .btn-primary:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #vaModal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #vaModal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen #vaModal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen main .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen main .btn-primary:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen main a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen main div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .bld-toeslagen main input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]) {
+    background-color: #42145f !important;
+}
+
+#bld-modal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #bld-modal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #bld-modal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #bld-modal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .btn-primary, .content_main .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .content_main a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .content_main div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .content_main input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]) {
+    background-color: #01689b;
+    color: #fff;
+}
+
+#bld-modal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #bld-modal a[class*=bld-knop-call-to-action], #bld-modal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #bld-modal div.bld-knop-call-to-action a, #bld-modal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #bld-modal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal a[class*=bld-knop-call-to-action], #vaModal a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal div.bld-knop-call-to-action a, #vaModal div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), #vaModal input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .btn-call-to-action, .btn-primary, .content_main .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .content_main a[class*=bld-knop-call-to-action], .content_main a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .content_main div.bld-knop-call-to-action a, .content_main div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), .content_main input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main .bld-backbutton:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main a[class*=bld-knop-call-to-action], main a[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main div.bld-knop-call-to-action a, main div[class*=bld-knop] a:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]), main input[class*=bld-knop]:not([class*=bld-knop-call-to-action]):not([class*=bld-knop-secundair]) {
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .2);
+    transition: box-shadow .4s;
+}
+
+#bld-modal .bld-backbutton:not(.bld-btn-search), #bld-modal a[class*=bld-knop]:not(.bld-btn-search), #bld-modal div[class*=bld-knop] a:not(.bld-btn-search), #bld-modal input[class*=bld-knop]:not(.bld-btn-search), #vaModal .bld-backbutton:not(.bld-btn-search), #vaModal a[class*=bld-knop]:not(.bld-btn-search), #vaModal div[class*=bld-knop] a:not(.bld-btn-search), #vaModal input[class*=bld-knop]:not(.bld-btn-search), .btn:not(.bld-btn-search), .content_main .bld-backbutton:not(.bld-btn-search), .content_main a[class*=bld-knop]:not(.bld-btn-search), .content_main div[class*=bld-knop] a:not(.bld-btn-search), .content_main input[class*=bld-knop]:not(.bld-btn-search), main .bld-backbutton:not(.bld-btn-search), main a[class*=bld-knop]:not(.bld-btn-search), main div[class*=bld-knop] a:not(.bld-btn-search), main input[class*=bld-knop]:not(.bld-btn-search) {
+    height: auto;
+}
+
+#bld-modal .bld-backbutton:not(.btn-sm), #bld-modal a[class*=bld-knop]:not(.btn-sm), #bld-modal div[class*=bld-knop] a:not(.btn-sm), #bld-modal input[class*=bld-knop]:not(.btn-sm), #vaModal .bld-backbutton:not(.btn-sm), #vaModal a[class*=bld-knop]:not(.btn-sm), #vaModal div[class*=bld-knop] a:not(.btn-sm), #vaModal input[class*=bld-knop]:not(.btn-sm), .btn:not(.btn-sm), .content_main .bld-backbutton:not(.btn-sm), .content_main a[class*=bld-knop]:not(.btn-sm), .content_main div[class*=bld-knop] a:not(.btn-sm), .content_main input[class*=bld-knop]:not(.btn-sm), main .bld-backbutton:not(.btn-sm), main a[class*=bld-knop]:not(.btn-sm), main div[class*=bld-knop] a:not(.btn-sm), main input[class*=bld-knop]:not(.btn-sm) {
+    min-width: 48px;
+}
+
+#bld-modal .bld-backbutton, #bld-modal a[class*=bld-knop-call-to-action], #bld-modal a[class*=bld-knop-secundair], #bld-modal a[class*=bld-knop], #bld-modal div.bld-knop-call-to-action a, #bld-modal div.bld-knop-secundair a, #bld-modal div[class*=bld-knop] a, #bld-modal input[class*=bld-knop], #bld-modal ul.bld-knoppenrij li a[class*=bld-knop], #vaModal .bld-backbutton, #vaModal a[class*=bld-knop-call-to-action], #vaModal a[class*=bld-knop-secundair], #vaModal a[class*=bld-knop], #vaModal div.bld-knop-call-to-action a, #vaModal div.bld-knop-secundair a, #vaModal div[class*=bld-knop] a, #vaModal input[class*=bld-knop], #vaModal ul.bld-knoppenrij li a[class*=bld-knop], .content_main .bld-backbutton, .content_main a[class*=bld-knop-call-to-action], .content_main a[class*=bld-knop-secundair], .content_main a[class*=bld-knop], .content_main div.bld-knop-call-to-action a, .content_main div.bld-knop-secundair a, .content_main div[class*=bld-knop] a, .content_main input[class*=bld-knop], .content_main ul.bld-knoppenrij li a[class*=bld-knop], .header .navbar .navbar-nav>li a[class*=bld-knop], .header .navbar .navbar-nav>li button[class*=bld-knop], main .bld-backbutton, main a[class*=bld-knop-call-to-action], main a[class*=bld-knop-secundair], main a[class*=bld-knop], main div.bld-knop-call-to-action a, main div.bld-knop-secundair a, main div[class*=bld-knop] a, main input[class*=bld-knop], main ul.bld-knoppenrij li a[class*=bld-knop] {
+    cursor: pointer;
+    display: inline-block;
+    font-family: RObold, Segoe UI, Helvetica Neue, sans-serif;
+    line-height: 1.375rem;
+    padding: .75rem 1.5rem;
+    text-decoration: none;
+}
+
+.bld-layer-iah p, .content_main p {
+    margin-bottom: .875rem;
+}
+
+.bld-knop-bellen:before, .bld-knop-downloaden:before, .bld-knop-inloggen:before {
+    background-color: #fff;
+    content: "";
+    float: left;
+    height: 1.2rem;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    width: 1.7rem;
+}
+
+.bld-knop-inloggen:before {
+    -webkit-mask-image: url('../images/account-icon.png');
+    mask-image: url('../images/account-icon.png');
+}
+
+.bld-knop-bellen:before, .bld-knop-downloaden:before, .bld-knop-inloggen:before {
+    background-color: #fff;
+    content: "";
+    float: left;
+    height: 1.2rem;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    width: 1.7rem;
+}
+
+.content_main p {
+    font-size: 1.125rem;
+    line-height: 1.5555;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto {
+    padding-left: 8px;
+    padding-right: 8px;
+    position: relative;
+    width: 100%;
+}
+
+.container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.container, 
+.container-fluid, 
+.container-lg, 
+.container-md, 
+.container-sm {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 100%;
+}
+
+.content_main h1 {
+    font-size: 1.6875rem;
+    line-height: 1.3333;
+    margin-bottom: .5rem;
+    margin-top: 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[class*=col-] {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+input[type=submit], button, a.button {
+    padding: 5px 12px;
+    background-color: #42145f;
+    box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+    color: #fff;
+    white-space: normal;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    margin: 5px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+/* ======================================= */
+@media (min-width: 768px) {
+    .h1, h1 {
+        font-size: 2.125rem;
+        font-weight: 400;
+        line-height: 1.3;
+    }
+    .h2, h2 {
+        font-size: 1.3125rem;
+    }
+    .h2, .h3, h2, h3 {
+        font-weight: 400;
+        line-height: 1.3334;
+    }
+    .container {
+        max-width: 724px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .content_main h1 {
+        font-size: 2.125rem;
+        line-height: 1.2941;
+        margin-bottom: .75rem;
+    }
+    .col-sm-8 {
+        flex: 0 0 66.66666667%;
+        max-width: 66.66666667%;
+    }
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .offset-sm-2 {
+        margin-left: 16.66666667%;
+    }
+    [class*=col-] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (min-width: 1024px) {
+    .container {
+        max-width: 970px;
+    }
+}
+@media (min-width: 1240px) {
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .col-lg-7 {
+        flex: 0 0 58.33333333%;
+        max-width: 58.33333333%;
+    }
+    [class*=col-] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

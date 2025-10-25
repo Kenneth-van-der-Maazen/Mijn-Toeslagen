@@ -1,0 +1,7 @@
+{
+  "name": "oitsdo3u/p7_toeslagen_gr1",
+  "description": "Toeslagen app - PHPMailer setup",
+  "require": {
+    "phpmailer/phpmailer": "^6.9"
+  }
+}
