@@ -13,8 +13,11 @@ To-Do:
 [ ] Admin portaal  
 [ ] Persoonlijke gegevens kunnen wijzigen  
   
-![Overzicht pagina](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)  
-
+![Overzicht pagina](https://github.com/Kenneth-van-der-Maazen/Mijn-Toeslagen/blob/main/Screenshots/screenshot-1.png?raw=true)  
+![Uitbetalingen](https://github.com/Kenneth-van-der-Maazen/Mijn-Toeslagen/blob/main/Screenshots/screenshot-2.png?raw=true)  
+![Gegevens van de gebruiker](https://github.com/Kenneth-van-der-Maazen/Mijn-Toeslagen/blob/main/Screenshots/screenshot-3.png)  
+![Database constructie](https://github.com/Kenneth-van-der-Maazen/Mijn-Toeslagen/blob/main/Screenshots/screenshot-4.png)  
+  
 ## Name
 beroepsproject p7 toeslagen
 ## Description
